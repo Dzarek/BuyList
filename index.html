@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./basket.png" type="image/png">
+  <title>Lista Zakupów</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg"></div>
+  <section class="section-center">
+    <form class="grocery-form">
+      <p class="alert"></p>
+      <h3>Lista Zakupów</h3>
+      <div class="form-control">
+        <section class="btnSubmit-container">
+          <input type="text" id="grocery" placeholder="wpisz nazwę produktu">
+          <button type="submit" class="submit-btn">
+            dodaj
+          </button>
+        </section>
+        <button type="button" class="submit-btn2">
+          <i class="fas fa-microphone"></i>
+        </button>
+      </div>
+    </form>
+    <div class="grocery-container">
+      <div class="grocery-list">
+
+      </div>
+      <button type="button" class="clear-btn">wyczyść listę</button>
+    </div>
+    <div class="favorite">
+      <h4 class="favorite-title">Ulubione Produkty</h4>
+      <div class="favorite-choose">
+        <button class="favorite-choose-btn food">spożywcze</button>
+        <button class="favorite-choose-btn chemic">chemia</button>
+      </div>
+      <div class="favorite-container none">
+        <form class="favorite-container-buttons">
+          <select name="kategorie" id="kategorie" class="favorite-select"></select>
+        </form>
+        <div class="favorite-container-products">
+        </div>
+      </div>
+      <div class="favorite2-container none">
+        <form class="favorite-container2-buttons">
+          <select name="kategorie" id="kategorie" class="favorite-select2"></select>
+        </form>
+        <div class="favorite-container2-products">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- javascript -->
+  <script src="app.js"></script>
+</body>
+
+</html>
