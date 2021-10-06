@@ -206,24 +206,24 @@ const chemia = [
     category: "higiena",
   },
   {
-    src: "https://img.icons8.com/emoji/48/000000/lotion-bottle.png",
-    alt: "płyn do naczyń",
-    category: "sprzątanie",
-  },
-  {
     src: "./produkty/szampon.svg",
     alt: "szampon",
     category: "higiena",
   },
   {
-    src: "https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-trash-hygiene-kiranshastry-lineal-color-kiranshastry.png",
-    alt: "worki na śmieci",
-    category: "sprzątanie",
-  },
-  {
     src: "https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-wet-wipes-hygiene-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png",
     alt: "chusteczki",
     category: "higiena",
+  },
+  {
+    src: "https://img.icons8.com/emoji/48/000000/lotion-bottle.png",
+    alt: "płyn do naczyń",
+    category: "sprzątanie",
+  },
+  {
+    src: "https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-trash-hygiene-kiranshastry-lineal-color-kiranshastry.png",
+    alt: "worki na śmieci",
+    category: "sprzątanie",
   },
 ];
 

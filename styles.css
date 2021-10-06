@@ -586,39 +586,39 @@ Grocery List
 }
 
 .pieczywoBgc {
-  border: 5px solid rgb(209, 209, 81);
+  border: 2px solid rgb(209, 209, 81);
 }
 
 .nabiałBgc {
-  border: 5px solid rgb(94, 200, 185);
+  border: 2px solid rgb(94, 200, 185);
 }
 
 .warzywaBgc {
-  border: 5px solid rgb(94, 200, 112);
+  border: 2px solid rgb(94, 200, 112);
 }
 
 .owoceBgc {
-  border: 5px solid rgb(221, 145, 74);
+  border: 2px solid rgb(221, 145, 74);
 }
 
 .mięsoBgc {
-  border: 5px solid rgb(221, 74, 74);
+  border: 2px solid rgb(221, 74, 74);
 }
 
 .przekąskiBgc {
-  border: 5px solid rgb(93, 36, 107);
+  border: 2px solid rgb(93, 36, 107);
 }
 
 .inneBgc {
-  border: 5px solid rgb(26, 26, 26);
+  border: 2px solid rgb(26, 26, 26);
 }
 
 .higienaBgc {
-  border: 5px solid rgb(48, 33, 114);
+  border: 2px solid rgb(48, 33, 114);
 }
 
 .sprzątanieBgc {
-  border: 5px solid rgb(189, 90, 189);
+  border: 2px solid rgb(189, 90, 189);
 }
 
 @media screen and (max-width: 800px) {
