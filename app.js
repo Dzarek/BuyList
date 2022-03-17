@@ -251,11 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // ****** FUNCTIONS **********
 
 const postProducts = (id, value) =>
-<<<<<<< HEAD
   fetch("https://buy-list-dzarek.herokuapp.com/api/products", {
-=======
-  fetch("http://localhost:1337/api/products", {
->>>>>>> c36b8226c96d1662b66cb6b71caeabe224a8c27a
     method: "POST",
     headers: {
       Accept: "application/json",
