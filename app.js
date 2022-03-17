@@ -10,6 +10,10 @@ const container = document.querySelector(".grocery-container");
 const list = document.querySelector(".grocery-list");
 const clearBtn = document.querySelector(".clear-btn");
 
+// token = 6087d056788729297cf49ac7012ac4b027ab54b9028b41894f11ee7dc0075117655a13949619e41df6bdd57d6c758175e55eb1e9d3bfaafc37118ca202f003e318bd19f5ebf9c03eeb1d9a2d8ac79bae14ede945b74d4dd73ac2453c8549f0678816b51bc9873e564d513946819d0554e3ccbadd402c93a668aa381ac998072b
+
+const url = "http://localhost:1337/api/products";
+
 // DATA PRODUCTS
 const jedzenie = [
   {
@@ -246,12 +250,43 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // ****** FUNCTIONS **********
 
+const postProducts = (id, value) =>
+  fetch("http://localhost:1337/api/products", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      data: {
+        id: id,
+        name: value,
+        idproduct: id,
+      },
+    }),
+  });
+
 function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
   const id = new Date().getTime().toString();
   if (value && !editFlag) {
     createListItem(id, value);
+    // fetch("http://localhost:1337/api/products", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     data: {
+    //       id: id,
+    //       name: value,
+    //       idproduct: id,
+    //     },
+    //   }),
+    // });
+    postProducts(id, value);
     //display alert
     displayAlert("dodano do listy", "success");
     //show container
@@ -262,6 +297,24 @@ function addItem(e) {
     setBackToDefault();
   } else if (value && editFlag) {
     editElement.innerHTML = value;
+
+    const idUpdate =
+      editElement.parentElement.parentElement.getAttribute("data-id");
+
+    fetch(`http://localhost:1337/api/products/${idUpdate}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          id: idUpdate,
+          name: value,
+          idproduct: idUpdate,
+        },
+      }),
+    });
     displayAlert("produkt zmieniony", "success");
     // edit local storage
     editLocalStorage(editID, value);
@@ -283,9 +336,16 @@ function displayAlert(text, action) {
 // clear items
 function clearItems() {
   const items = document.querySelectorAll(".grocery-item");
+  // console.log(items[0].getAttribute("data-id"));
   if (items.length > 0) {
     items.forEach(function (item) {
       list.removeChild(item);
+      fetch(
+        `http://localhost:1337/api/products/${item.getAttribute("data-id")}`,
+        {
+          method: "DELETE",
+        }
+      );
     });
   }
   container.classList.remove("show-container");
@@ -309,6 +369,9 @@ function deleteItem(e) {
   setBackToDefault();
   // remove from local storage
   removeFromLocalStorage(id);
+  fetch(`http://localhost:1337/api/products/${id}`, {
+    method: "DELETE",
+  });
 }
 //edit function
 function editItem(e) {
@@ -322,6 +385,7 @@ function editItem(e) {
   editElement = e.currentTarget.nextElementSibling;
   //set form value
   grocery.value = editElement.innerHTML;
+  // console.log(editElement.innerHTML);
   editFlag = true;
   editID = element.dataset.id;
   submitBtn.textContent = "zapisz";
@@ -341,6 +405,7 @@ function addToLocalStorage(id, value) {
   const grocery = { id: id, value: value };
   let items = getLocalStorage();
   items.push(grocery);
+
   localStorage.setItem("list", JSON.stringify(items));
 }
 
@@ -370,13 +435,28 @@ function getLocalStorage() {
 }
 // ****** SETUP ITEMS **********
 function setupItems() {
-  let items = getLocalStorage();
-  if (items.length > 0) {
-    items.forEach(function (item) {
-      createListItem(item.id, item.value);
+  const fetchProducts = async () => {
+    const response = await fetch(`${url}`);
+    const data = await response.json();
+    // let items = getLocalStorage();
+    const items = data.data.map((item) => {
+      const {
+        attributes: { idproduct, name },
+      } = item;
+      return {
+        id: idproduct,
+        value: name,
+      };
     });
-    container.classList.add("show-container");
-  }
+
+    if (items.length > 0) {
+      items.forEach(function (item) {
+        createListItem(item.id, item.value);
+      });
+      container.classList.add("show-container");
+    }
+  };
+  fetchProducts();
 }
 
 function createListItem(id, value) {
@@ -413,6 +493,7 @@ function addFavorite(e) {
   const id = new Date().getTime().toString();
   if (value && !editFlag) {
     createListItem(id, value);
+    postProducts(id, value);
     displayAlert("dodano do listy", "success");
     container.classList.add("show-container");
     addToLocalStorage(id, value);
