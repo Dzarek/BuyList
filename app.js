@@ -301,11 +301,7 @@ function addItem(e) {
     const idUpdate =
       editElement.parentElement.parentElement.getAttribute("data-id");
 
-<<<<<<< HEAD
     fetch(`https://buy-list-dzarek.herokuapp.com/api/products/${idUpdate}`, {
-=======
-    fetch(`http://localhost:1337/api/products/${idUpdate}`, {
->>>>>>> c36b8226c96d1662b66cb6b71caeabe224a8c27a
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -345,13 +341,9 @@ function clearItems() {
     items.forEach(function (item) {
       list.removeChild(item);
       fetch(
-<<<<<<< HEAD
         `https://buy-list-dzarek.herokuapp.com/api/products/${item.getAttribute(
           "data-id"
         )}`,
-=======
-        `http://localhost:1337/api/products/${item.getAttribute("data-id")}`,
->>>>>>> c36b8226c96d1662b66cb6b71caeabe224a8c27a
         {
           method: "DELETE",
         }
@@ -379,11 +371,7 @@ function deleteItem(e) {
   setBackToDefault();
   // remove from local storage
   removeFromLocalStorage(id);
-<<<<<<< HEAD
   fetch(`https://buy-list-dzarek.herokuapp.com/api/products/${id}`, {
-=======
-  fetch(`http://localhost:1337/api/products/${id}`, {
->>>>>>> c36b8226c96d1662b66cb6b71caeabe224a8c27a
     method: "DELETE",
   });
 }
@@ -450,13 +438,9 @@ function getLocalStorage() {
 // ****** SETUP ITEMS **********
 function setupItems() {
   const fetchProducts = async () => {
-<<<<<<< HEAD
     const response = await fetch(
       `https://buy-list-dzarek.herokuapp.com/api/products`
     );
-=======
-    const response = await fetch(`${url}`);
->>>>>>> c36b8226c96d1662b66cb6b71caeabe224a8c27a
     const data = await response.json();
     // let items = getLocalStorage();
     const items = data.data.map((item) => {
