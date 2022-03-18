@@ -269,7 +269,9 @@ const postProducts = (id, value) =>
 function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
-  const id = new Date().getTime().toString();
+  const id = new Date().getTime().toString().slice(3, -1);
+
+  console.log(id);
   if (value && !editFlag) {
     createListItem(id, value);
     // fetch("http://localhost:1337/api/products", {
