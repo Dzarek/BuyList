@@ -496,7 +496,7 @@ let favoriteValue = "";
 function addFavorite(e) {
   e.preventDefault();
   const value = favoriteValue;
-  const id = new Date().getTime().toString();
+  const id = new Date().getTime().toString().slice(3, -1);
   if (value && !editFlag) {
     createListItem(id, value);
     postProducts(id, value);
