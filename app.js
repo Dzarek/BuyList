@@ -10,8 +10,6 @@ const container = document.querySelector(".grocery-container");
 const list = document.querySelector(".grocery-list");
 const clearBtn = document.querySelector(".clear-btn");
 
-// token = 6087d056788729297cf49ac7012ac4b027ab54b9028b41894f11ee7dc0075117655a13949619e41df6bdd57d6c758175e55eb1e9d3bfaafc37118ca202f003e318bd19f5ebf9c03eeb1d9a2d8ac79bae14ede945b74d4dd73ac2453c8549f0678816b51bc9873e564d513946819d0554e3ccbadd402c93a668aa381ac998072b
-
 const url = "http://localhost:1337/api/products";
 
 // DATA PRODUCTS
@@ -36,7 +34,6 @@ const jedzenie = [
     alt: "mleko dla dziecka",
     category: "nabiał",
   },
-
   {
     src: "https://img.icons8.com/office/40/000000/milk.png",
     alt: "mleko",
@@ -270,24 +267,8 @@ function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
   const id = new Date().getTime().toString().slice(3, -1);
-
-  console.log(id);
   if (value && !editFlag) {
     createListItem(id, value);
-    // fetch("http://localhost:1337/api/products", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     data: {
-    //       id: id,
-    //       name: value,
-    //       idproduct: id,
-    //     },
-    //   }),
-    // });
     postProducts(id, value);
     //display alert
     displayAlert("dodano do listy", "success");
@@ -299,10 +280,8 @@ function addItem(e) {
     setBackToDefault();
   } else if (value && editFlag) {
     editElement.innerHTML = value;
-
     const idUpdate =
       editElement.parentElement.parentElement.getAttribute("data-id");
-
     fetch(`https://buy-list-dzarek.herokuapp.com/api/products/${idUpdate}`, {
       method: "PUT",
       headers: {
@@ -454,7 +433,6 @@ function setupItems() {
         value: name,
       };
     });
-
     if (items.length > 0) {
       items.forEach(function (item) {
         createListItem(item.id, item.value);
@@ -642,6 +620,7 @@ window.SpeechRecognition =
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
+console.log(recognition);
 
 recognition.addEventListener("result", (e) => {
   const transcript = Array.from(e.results)

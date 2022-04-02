@@ -235,9 +235,7 @@ Grocery List
 ===============
 */
 .section-center {
-  /* background: var(--clr-white); */
   background: rgba(253, 253, 253, 0.95);
-  /* border: 5px var(--clr-primary-8) solid; */
   border: 5px rgba(0, 0, 0, 0.5) solid;
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
@@ -327,7 +325,6 @@ Grocery List
 
 .submit-btn,
 .submit-btn2 {
-  /* background: var(--clr-primary-8); */
   background: rgba(0, 0, 0, 0.5);
   border-color: transparent;
   display: grid;
@@ -345,7 +342,6 @@ Grocery List
   height: 40px;
   width: 20vw;
   outline: none;
-  /* margin: 2vh auto 0; */
 }
 
 .submit-btn2 {
@@ -360,7 +356,6 @@ Grocery List
 }
 
 .submit-btn3 {
-
   animation: submitAnim .5s infinite alternate;
 }
 
@@ -368,14 +363,12 @@ Grocery List
   0% {
     color: white;
     background: rgba(0, 0, 0, 0.5);
-    /* background: var(--clr-primary-8); */
     transform: scale(1);
   }
 
   100% {
     color: black;
     background: rgba(255, 255, 255, 0.5);
-    /* background: var(--clr-primary-3); */
     transform: scale(1.1);
   }
 }
@@ -406,7 +399,6 @@ Grocery List
   padding: 0.25rem 1rem;
   border-radius: var(--radius);
   text-transform: capitalize;
-  /* background: rgb(251, 203, 71); */
   background: rgba(251, 203, 71, 0.5);
   font-weight: 600;
   font-size: 1rem;
@@ -434,7 +426,6 @@ Grocery List
   color: var(--clr-grey-1);
   letter-spacing: 2px;
   transition: var(--transition);
-  /* margin: 0 40vw 0 0; */
 }
 
 .edit-btn,
@@ -448,19 +439,15 @@ Grocery List
 }
 
 .edit-btn {
-
   color: rgb(91, 146, 43);
   margin-right: 4vw;
 }
 
-/* .edit-btn:hover {} */
 
 .delete-btn {
-  /* justify-self: flex-end; */
   color: var(--clr-red-dark);
 }
 
-/* .delete-btn:hover {} */
 
 .clear-btn {
   text-transform: capitalize;
@@ -489,7 +476,6 @@ Grocery List
   padding: 20px;
   margin: 5vh auto 0vh;
   background-color: rgba(17, 32, 4, 0.8);
-  /* background-color: rgba(32, 17, 17, 0.9); */
   width: 100%;
   min-height: 55vh;
   position: relative;
@@ -539,7 +525,6 @@ Grocery List
 
 
 .favorite-choose-active {
-  /* background-color: var(--clr-grey-5); */
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
   color: #eee
@@ -681,9 +666,6 @@ Grocery List
   height: 70px;
   margin: 2vw;
   padding: 10px;
-  /* background-color: rgba(255, 255, 255, 0.7); */
-
-  /* border: 2px solid rgba(14, 59, 0, 0.8); */
   border-radius: 40%;
   transition: .5s;
 }
@@ -736,6 +718,4 @@ Grocery List
     width: auto;
     margin: auto auto;
   }
-
-
 }
